@@ -1,4 +1,6 @@
 ---
+# Setup my home dir
+ - import_tasks: "home.yml"   
 # install regolith
  - name: add regolith apt ppa apt repository
    apt_repository:
@@ -44,15 +46,6 @@
      update_cache: yes
      state: present
 
-# Gcloud
-# ToDo: not sure if I should use this:
-#       https://github.com/ansible/role-install-gcloud
- - name: setup Google Cloud SDK
- # ToDo parameterize
-   apt:
-     name: ["google-cloud-sdk", "kubectl", "google-cloud-sdk-app-engine-python", "google-cloud-sdk-app-engine-python-extras", "google-cloud-sdk-app-engine-go"]
-     state: present
-
 # Setup docker
  - name: install docker
    apt:
@@ -73,3 +66,4 @@
      name: "{{ me }}"
      append: yes
      group: docker
+ - import_tasks: "gcp_sdk.yml"

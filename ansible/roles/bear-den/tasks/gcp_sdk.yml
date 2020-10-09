@@ -1,0 +1,34 @@
+---
+# Gcloud
+# ToDo: not sure if I should use this:
+#       https://github.com/ansible/role-install-gcloud
+
+ - name: Get google cloud installation prereqs
+   apt:
+    name: ["apt-transport-https", "ca-certificates", "gnupg"]
+    state: present
+
+ - name: Add Google Cloud deb repo
+   copy:
+    content: "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"
+    dest: /etc/apt/sources.list.d/google-cloud-sdk.list
+    mode: 0644
+
+ - name: Add gcloud apt key
+   apt_key:
+     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+     state: present
+     keyring: /usr/share/keyrings/cloud.google.gpg
+
+ - name: install Google Cloud SDK
+ # ToDo parameterize
+   apt:
+     name: ["google-cloud-sdk", "kubectl", "google-cloud-sdk-app-engine-python", "google-cloud-sdk-app-engine-python-extras", "google-cloud-sdk-app-engine-go"]
+     state: present
+     update_cache: yes
+
+ - name: fetch google cloud SDK
+   unarchive:
+      src: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ google_cloud_version }}-linux-{{ ansible_architecture }}.tar.gz"
+      remote_src: yes
+      dest: "{{ user_bin_dir }}"

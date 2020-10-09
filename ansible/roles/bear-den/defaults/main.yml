@@ -15,3 +15,7 @@ dev_engineering_packages:
   - git
 cosmetic_packages:
   - fonts-inconsolata
+google_cloud_version: "313.0.1"
+# hella gross that I'm hardcoding home in, should learn how to do this
+# better, there almost certainly has to be a way.
+user_bin_dir: /home/tjachetta/bin

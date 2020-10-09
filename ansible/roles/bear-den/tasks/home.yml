@@ -1,0 +1,7 @@
+---
+ - name: "{{ me }} bin dir"
+   file:
+    state: directory
+    group: "{{ me }}"
+    owner: "{{ me }}"
+    path: "{{ user_bin_dir }}"
