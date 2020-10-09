@@ -1,0 +1,17 @@
+me: tjachetta
+i3_status_packages:
+  - "i3xrocks-battery"
+  - "i3xrocks-time"
+  - "i3xrocks-wifi"
+  - "i3xrocks-media-player"
+  - "i3xrocks-volume"
+utility_packages:
+  # sshd gets its own setup
+  - net-tools
+  - arp-scan
+dev_engineering_packages:
+    # Docker isn't in here because we manually manage docker
+  - go
+  - git
+cosmetic_packages:
+  - fonts-inconsolata

@@ -1,0 +1,75 @@
+---
+# install regolith
+ - name: add regolith apt ppa apt repository
+   apt_repository:
+     repo: ppa:regolith-linux/release
+     state: present
+ - name: install regolith-desktop
+   apt:
+     name: regolith-desktop
+     state: present
+ - name: install i3xrocks menu bar indicators
+   apt:
+     name: "{{i3_status_packages}}"
+     state: present
+
+# Non apt package prereqs
+ - name: install non apt package prereqs
+   apt:
+     name: ['apt-transport-https', 'ca-certificates', 'gnupg', 'curl']
+     state: present
+
+ - name: "install sshd"
+   apt:
+     name: "openssh-server"
+     state: present
+ # ToDo: Configure sshd
+ #       * add localhost ssh pubkey to authorized-keys if VM
+
+# install sublime
+
+ - name: Add sublime deb repo
+   copy:
+    content: "deb https://download.sublimetext.com/ apt/stable/"
+    dest: /etc/apt/sources.list.d/sublime-text.list 
+    mode: 0644
+
+ - name: install Sublime GPG key
+   apt_key:
+    url: https://download.sublimetext.com/sublimehq-pub.gpg
+    state: present
+ - name: install sublime text and merge
+   apt:
+     name: ["sublime-text", "sublime-merge"]
+     update_cache: yes
+     state: present
+
+# Gcloud
+# ToDo: not sure if I should use this:
+#       https://github.com/ansible/role-install-gcloud
+ - name: setup Google Cloud SDK
+ # ToDo parameterize
+   apt:
+     name: ["google-cloud-sdk", "kubectl", "google-cloud-sdk-app-engine-python", "google-cloud-sdk-app-engine-python-extras", "google-cloud-sdk-app-engine-go"]
+     state: present
+
+# Setup docker
+ - name: install docker
+   apt:
+     name: docker
+     state: present
+
+ - name: install docker SDK
+   pip:
+     name: docker
+     state: present
+
+ - name: "add docker group"
+   group:
+     name: docker
+
+ - name: "add user {{ me }} to docker group"
+   user:
+     name: "{{ me }}"
+     append: yes
+     group: docker
