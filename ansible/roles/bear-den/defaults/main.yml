@@ -9,6 +9,7 @@ utility_packages:
   # sshd gets its own setup
   - net-tools
   - arp-scan
+  - zip
 dev_engineering_packages:
     # Docker isn't in here because we manually manage docker
   - go
