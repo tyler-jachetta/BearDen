@@ -65,5 +65,5 @@
    user:
      name: "{{ me }}"
      append: yes
-     group: docker
+     groups: ["docker"]
  - import_tasks: "gcp_sdk.yml"
