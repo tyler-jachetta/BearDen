@@ -66,4 +66,6 @@
      name: "{{ me }}"
      append: yes
      groups: ["docker"]
+
  - import_tasks: "gcp_sdk.yml"
+ - import_tasks: "terraform.yml"
