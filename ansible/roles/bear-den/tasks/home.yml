@@ -5,3 +5,5 @@
     group: "{{ me }}"
     owner: "{{ me }}"
     path: "{{ user_bin_dir }}"
+# ToDo: For pocket universe/vms, do some
+# linking x to y, where y is in /var/lib/tf_share or wahtever

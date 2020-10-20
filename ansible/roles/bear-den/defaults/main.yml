@@ -29,7 +29,8 @@ cosmetic_packages:
 google_cloud_version: "313.0.1"
 # hella gross that I'm hardcoding home in, should learn how to do this
 # better, there almost certainly has to be a way.
-user_bin_dir: /home/tjachetta/bin
+user_bin_dir: /home/tjachetta/bin`
+user_dir: /home/tjachetta
 # ToDo get some software and install from github
 github_packages:
   - square/certigo `(go get -u github.com/square/certigo)`
