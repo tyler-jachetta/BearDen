@@ -1,0 +1,11 @@
+---
+  - name: Get aws image
+    docker_image:
+      name: amazon/aws-cli:latest
+      source: pull
+
+  - name: "{{ me }} aws alias"
+    lineinfile:
+      line: "alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'"
+      path: "{{ user_dir }}/.bashrc"
+

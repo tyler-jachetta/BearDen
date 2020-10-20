@@ -46,16 +46,32 @@
      update_cache: yes
      state: present
 
-# Setup docker
  - name: install docker
    apt:
-     name: docker
-     state: present
+    name: docker.io
+    state: present
 
  - name: install docker SDK
    pip:
      name: docker
      state: present
+
+ - name: Setup utility packages (apt):
+   apt:
+      name: "{{ utilty_packages }}"
+      state: present
+
+ - name: Setup useful pip packages:
+   pip:
+     name: "{{ pip_packages }}"
+     state: present
+
+
+# Docker does not have 20.04 repos up yet
+# - name: install docker
+#   apt:
+#     name: ["docker-ce", "docker-ce-cli"]
+#     state: present
 
  - name: "add docker group"
    group:
@@ -67,5 +83,12 @@
      append: yes
      groups: ["docker"]
 
+ - name: setup docker service
+   service:
+    name: docker
+    state: started
+    enabled: yes
+
  - import_tasks: "gcp_sdk.yml"
  - import_tasks: "terraform.yml"
+ - import_tasks: aws.yml

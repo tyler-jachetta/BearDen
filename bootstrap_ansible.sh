@@ -18,4 +18,4 @@ cat ~/.ssh/id_ecdsa.pub >> ~/.ssh/authorized_keys
 cat ~/.ssh/id_ecdsa.pub | sudo tee /root/.ssh/authorized_keys
 
 cd ansible
-ansible-playbook -K playbooks/den.yml
+ansible-playbook -K playbooks/den.yml 
