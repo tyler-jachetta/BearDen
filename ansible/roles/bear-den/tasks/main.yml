@@ -56,12 +56,12 @@
      name: docker
      state: present
 
- - name: Setup utility packages (apt):
+ - name: "Setup utility packages (apt):"
    apt:
       name: "{{ utilty_packages }}"
       state: present
 
- - name: Setup useful pip packages:
+ - name: Setup useful pip packages
    pip:
      name: "{{ pip_packages }}"
      state: present
