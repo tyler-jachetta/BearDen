@@ -1,4 +1,8 @@
 ---
+
+# ToDo:
+  * onepassword
+
 # Setup my home dir
  - import_tasks: "home.yml"   
 # install regolith
