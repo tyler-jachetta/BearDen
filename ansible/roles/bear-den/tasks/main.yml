@@ -73,7 +73,7 @@
 
  - name: "Setup utility packages (apt):"
    apt:
-      name: "{{ utilty_packages }}"
+      name: "{{ utility_packages }}"
       state: present
 
  - name: Setup useful pip packages
