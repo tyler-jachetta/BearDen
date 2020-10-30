@@ -12,6 +12,7 @@ sudo apt install -y software-properties-common
 sudo apt install -y openssh-server
 sudo apt install -y python3-pip
 
+sudo pip3 install --upgrade pip
 sudo pip3 install ansible
 
 # Create ssh keys and copy pubkey to authorized keys

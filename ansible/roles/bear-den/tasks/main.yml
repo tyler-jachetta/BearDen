@@ -1,4 +1,8 @@
 ---
+
+# ToDo:
+  * onepassword
+
 # Setup my home dir
  - import_tasks: "home.yml"   
 # install regolith
@@ -14,6 +18,21 @@
    apt:
      name: "{{i3_status_packages}}"
      state: present
+
+ - name: Setup snap
+   apt:
+     name: snapd
+     state: present
+
+ - name: Install various snaps
+   snap:
+       name: "{{ snaps }}"
+       state: present
+
+ - name: Install snaps which require classic containment
+   snap:
+     name: "{{ classic_snaps }}"
+     classic: yes
 
 # Non apt package prereqs
  - name: install non apt package prereqs
@@ -58,7 +77,7 @@
 
  - name: "Setup utility packages (apt):"
    apt:
-      name: "{{ utilty_packages }}"
+      name: "{{ utility_packages }}"
       state: present
 
  - name: Setup useful pip packages
