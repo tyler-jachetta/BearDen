@@ -1,4 +1,5 @@
 me: tjachetta
+my_shell: "/bin/zsh"
 i3_status_packages:
   - "i3xrocks-battery"
   - "i3xrocks-time"
@@ -11,12 +12,15 @@ utility_packages:
   - arp-scan
   - zip
   - fping
+  - zsh
   # Arp, 
   - net-tools
   - jq
   - yq
   # GFM renderer
   - grip
+  # Time tracking base
+  - arbtt
 pip_packages:
   - fire
   - virtualenvwrapper
@@ -24,6 +28,8 @@ dev_engineering_packages:
     # Docker isn't in here because we manually manage docker
   - go
   - git
+  # poetry for python packaging and shit
+  # curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 cosmetic_packages:
   - fonts-inconsolata
 google_cloud_version: "313.0.1"
@@ -31,6 +37,11 @@ google_cloud_version: "313.0.1"
 # better, there almost certainly has to be a way.
 user_bin_dir: /home/tjachetta/bin`
 user_dir: /home/tjachetta
+
+sh_aliases:
+  # ToDo
+  ansifact: "ansible --help"
+
 # ToDo get some software and install from github
 github_packages:
   - square/certigo `(go get -u github.com/square/certigo)`
