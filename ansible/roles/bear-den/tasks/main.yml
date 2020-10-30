@@ -15,6 +15,21 @@
      name: "{{i3_status_packages}}"
      state: present
 
+ - name: Setup snap
+   apt:
+     name: snapd
+     state: present
+
+ - name: Install various snaps
+   snap:
+       name: "{{ snaps }}"
+       state: present
+
+ - name: Install snaps which require classic containment
+   snap:
+     name: "{{ classic_snaps }}"
+     classic: yes
+
 # Non apt package prereqs
  - name: install non apt package prereqs
    apt:

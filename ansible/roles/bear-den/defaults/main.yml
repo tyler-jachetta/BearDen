@@ -8,6 +8,7 @@ i3_status_packages:
   - "i3xrocks-volume"
 utility_packages:
   # sshd gets its own setup
+  # snap (`snapd`) also gets its own setup
   - net-tools
   - arp-scan
   - zip
@@ -16,11 +17,17 @@ utility_packages:
   # Arp, 
   - net-tools
   - jq
-  - yq
   # GFM renderer
   - grip
   # Time tracking base
   - arbtt
+# ToDo combine in packages and use a hash there
+snaps:
+  - yq
+  - spotify
+classic_snaps:
+  - zoom-client
+  - slack
 pip_packages:
   - fire
   - virtualenvwrapper
