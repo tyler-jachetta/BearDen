@@ -1,6 +1,6 @@
 me: tjachetta
 my_shell: "/bin/zsh"
-1passwordx_version: "1.22.2"
+onepasswordx_version: "1.22.2"
 i3_status_packages:
   - "i3xrocks-battery"
   - "i3xrocks-time"
