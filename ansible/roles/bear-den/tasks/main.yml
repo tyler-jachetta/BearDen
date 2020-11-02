@@ -1,7 +1,7 @@
 ---
 
 # ToDo:
-  * onepassword
+#  * onepassword
 
 # Setup my home dir
  - import_tasks: "home.yml"   
@@ -14,6 +14,9 @@
    apt:
      name: regolith-desktop
      state: present
+ # ToDo: move from just installing to managing all indicators (i.e., remove
+ # unmanaged indicators from current use, and add indicators to bar in order
+ # specified).
  - name: install i3xrocks menu bar indicators
    apt:
      name: "{{i3_status_packages}}"
@@ -65,6 +68,8 @@
      update_cache: yes
      state: present
 
+# Docker
+
  - name: install docker
    apt:
     name: docker.io
@@ -75,6 +80,8 @@
      name: docker
      state: present
 
+# Misc Utilities
+
  - name: "Setup utility packages (apt):"
    apt:
       name: "{{ utility_packages }}"
@@ -84,6 +91,9 @@
    pip:
      name: "{{ pip_packages }}"
      state: present
+
+# onepasswordx dl src: https://addons.mozilla.org/firefox/downloads/file/3653115/1password_x_password_manager-1.22.2-fx.xpi
+
 
 
 # Docker does not have 20.04 repos up yet
