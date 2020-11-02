@@ -1,5 +1,6 @@
 me: tjachetta
 my_shell: "/bin/zsh"
+1passwordx_version: "1.22.2"
 i3_status_packages:
   - "i3xrocks-battery"
   - "i3xrocks-time"
@@ -45,8 +46,9 @@ google_cloud_version: "313.0.1"
 user_bin_dir: /home/tjachetta/bin`
 user_dir: /home/tjachetta
 
+# ToDo: make use of this
 sh_aliases:
-  ansifact: 
+  ansifact: "ansible localhost -m setup"
 
 # ToDo get some software and install from github
 github_packages:
