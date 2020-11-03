@@ -8,6 +8,7 @@
     name: ["apt-transport-https", "ca-certificates", "gnupg"]
     state: present
 
+ # ToDo: make idempotent
  - name: Add Google Cloud deb repo
    copy:
     content: "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"

@@ -48,7 +48,9 @@
  #       * add localhost ssh pubkey to authorized-keys if VM
 
 # install sublime
+#  - ToDo: add keys?
 
+  # ToDo: Make deb repo idempotent
  - name: Add sublime deb repo
    copy:
     content: "deb https://download.sublimetext.com/ apt/stable/"
