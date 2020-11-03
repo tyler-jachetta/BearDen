@@ -35,6 +35,8 @@ dev_engineering_packages:
     # Docker isn't in here because we manually manage docker
   - go
   - git
+  - virtualbox
+  - virtualbox—ext–pack
   # poetry for python packaging and shit
   # curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 cosmetic_packages:

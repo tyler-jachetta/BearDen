@@ -87,6 +87,11 @@
      name: "{{ pip_packages }}"
      state: present
 
+ - name: Setup some dev/infra/engineering related stuff
+   apt:
+      name: "{{ dev_engineering_packages }}"
+      state: present
+
 
 # Docker does not have 20.04 repos up yet
 # - name: install docker
@@ -112,4 +117,5 @@
 
  - import_tasks: "gcp_sdk.yml"
  - import_tasks: "terraform.yml"
- - import_tasks: aws.yml
+ - import_tasks: "aws.yml"
+ - import_tasks: "python.yml"
