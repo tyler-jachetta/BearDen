@@ -132,3 +132,4 @@
  - import_tasks: "terraform.yml"
  - import_tasks: "aws.yml"
  - import_tasks: "python.yml"
+ - import_tasks: "onepasswordx.yml"
