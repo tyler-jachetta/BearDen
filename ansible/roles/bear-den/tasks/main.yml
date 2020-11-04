@@ -47,6 +47,12 @@
    apt:
      name: "openssh-server"
      state: present
+
+ - name: setup sshd service
+   service:
+    name: sshd
+    state: started
+    enabled: yes
  # ToDo: Configure sshd
  #       * add localhost ssh pubkey to authorized-keys if VM
 
