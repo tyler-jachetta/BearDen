@@ -21,6 +21,7 @@ utility_packages:
   # Arp, 
   - net-tools
   - jq
+  - apt-file
   # GFM renderer
   - grip
   # Time tracking base
@@ -28,7 +29,6 @@ utility_packages:
 # ToDo combine in packages and use a hash there
 snaps:
   - yq
-  - spotify
 classic_snaps:
   - zoom-client
   - slack
@@ -37,7 +37,7 @@ pip_packages:
   - virtualenvwrapper
 dev_engineering_packages:
     # Docker isn't in here because we manually manage docker
-  - go
+  - golang
   - git
   - virtualbox
   - python3-dev
@@ -49,6 +49,10 @@ dev_engineering_packages:
   # curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 cosmetic_packages:
   - fonts-inconsolata
+media_packages:
+  - vlc
+media_snaps:
+  - spotify
 google_cloud_version: "313.0.1"
 # hella gross that I'm hardcoding home in, should learn how to do this
 # better, there almost certainly has to be a way.
