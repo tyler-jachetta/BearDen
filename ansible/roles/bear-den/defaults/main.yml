@@ -1,5 +1,8 @@
 me: tjachetta
 my_shell: "/bin/zsh"
+shell_runcommand_scripts:
+  - ".bashrc"
+  - ".zshrc"
 onepasswordx_version: "1.22.2"
 i3_status_packages:
   - "i3xrocks-battery"
@@ -37,7 +40,11 @@ dev_engineering_packages:
   - go
   - git
   - virtualbox
-  - virtualbox—ext–pack
+  - python3-dev
+  # ansible-auto needs this (python2 dev) but not sure anything else does right now
+  - python-dev
+  # virtualbox-ext-pack shows up in apt-cache search but won't install
+  # - virtualbox—ext–pack
   # poetry for python packaging and shit
   # curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 cosmetic_packages:

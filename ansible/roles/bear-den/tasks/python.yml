@@ -1,0 +1,53 @@
+---
+ - name: "Install virtualenvwrapper"
+   pip:
+    name: "virtualenvwrapper"
+    state: present
+   tags:
+    - virtualenvwrapper
+
+ - name: "Setup env variables for virtualenvwrapper"
+   vars:
+     lines:
+       - "export WORKON_HOME=$HOME/.virtualenvs"
+       - "export PROJECT_HOME=$HOME/Devel"
+       - "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3"
+   loop: "{{ shell_runcommand_scripts | product(lines) | list }}"
+   lineinfile:
+     path: "{{ user_dir }}/{{ item[0] }}"
+     line: "{{ item[1] }}"
+     state: present
+     insertbefore: "source /usr/local/bin/virtualenvwrapper.sh"
+   tags:
+     - virtualenvwrapper
+ - name: "Source virtualenvwrapper command"
+   loop: "{{ shell_runcommand_scripts }}"
+   lineinfile:
+     state: present
+     path: "{{ user_dir }}/{{ item }}"
+     line: "source /usr/local/bin/virtualenvwrapper.sh"
+     insertafter: EOF
+   tags:
+     - virtualenvwrapper
+ - name: Poetry sys dependencies
+   # Poetry isn't PEP 394 compliant
+   apt:
+     name: "python-is-python3"
+     state: present
+   tags:
+     - poetry
+
+ - name: Setup Poetry
+   become: no
+   shell:
+    cmd: "curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -"
+    creates: "{{ user_dir }}/.poetry/bin/poetry"
+   tags:
+    - poetry
+
+ - name: "rcfile source poetry"
+   loop: "{{ shell_runcommand_scripts }}"
+   lineinfile:
+     state: present
+     path: "{{ user_dir }}/{{ item }}"
+     line: "source ${HOME}/.poetry/env"
