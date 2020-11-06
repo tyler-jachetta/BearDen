@@ -1,0 +1,9 @@
+---
+- name: Install media packages
+  apt:
+    state: present
+    name: {{ media_packages }}
+- name: Install media snaps
+  snap:
+    state: present
+    name: {{ media_snaps }}
