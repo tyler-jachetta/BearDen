@@ -14,6 +14,7 @@ utility_packages:
   # sshd gets its own setup
   # snap (`snapd`) also gets its own setup
   - net-tools
+  - tree
   - arp-scan
   - zip
   - fping
@@ -26,6 +27,7 @@ utility_packages:
   - grip
   # Time tracking base
   - arbtt
+  # certigo (go from git `go get -u github.com/square/certigo`)
 # ToDo combine in packages and use a hash there
 snaps:
   - yq
